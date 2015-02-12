@@ -2,5 +2,21 @@
     <div class="col-sm-8">
         <h1>{{post.title}}</h1>
         <p>{{post.body}}</p>
+        <button ng-click="editPost()" class="btn btn-warning pull-right">Edit</button>
+    </div>
+    <div  class="col-sm-8">
+    <hr>
+      <h3>Comments</h3>
+      <form class="form" ng-submit="addComment()">
+        <div class="form-group">
+          <textarea ng-model="commentText" class="form-control"></textarea>
+        </div>
+        <button class="btn btn-warning">Add Comment</button>
+      </form>
+      <br>
+      <div ng-repeat="comment in post.comments | orderBy:'createdAt':true" class="well">
+        <p>{{comment.body}}</p>
+        <p>{{comment.createdAt | date:'short'}}</p>
+      </div>
     </div>
 </div>

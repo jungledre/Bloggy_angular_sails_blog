@@ -7,7 +7,6 @@
 
 module.exports = {
 
-
   attributes: {
     title:{
         type:'string',
@@ -16,6 +15,10 @@ module.exports = {
     body:{
         type:'text',
         required:true
+    },
+    comments:{
+        collection:'Comment',
+        via:'post'
     }
   }
 };

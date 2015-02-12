@@ -26,7 +26,23 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*':['forbidden'],
+  'PagesController':true,
+  'AuthController':true,
+  'UserController':{
+    '*':['sessionAuth'],
+    'create':true
+  },
+  'PostController':{
+    '*':['sessionAuth'],
+    'find':true,
+    'findOne':true
+  },
+  'CommentController':{
+    '*':['sessionAuth'],
+    'find':true,
+    'findOne':true
+  }
 
   /***************************************************************************
   *                                                                          *
